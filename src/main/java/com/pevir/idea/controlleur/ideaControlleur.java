@@ -22,31 +22,31 @@ public class ideaControlleur {
 	
 	
 	//Controlleur pour récuperer la liste des idées 
-	@RequestMapping(method = RequestMethod.GET, value="/idees")
+	@RequestMapping(method = RequestMethod.GET, value="/api-gest-idee-v1.0.0/idees")
 	public List<Idea> getIdea() {
 		return ideaservice.getIdea();
 	}
 	
 	//Controlleur pour récuperer une idéee en fonction de son identifiant
-	@RequestMapping(method = RequestMethod.GET, value= "/idee/{id}")
+	@RequestMapping(method = RequestMethod.GET, value= "/api-gest-idee-v1.0.0/idee/{id}")
 	public Idea getIdeaById(@PathVariable int id) {
 		return ideaservice.getIdeaById(id);
 	}
 	
 	//Controlleur pour supprimer une idéee en fonction de son identifiant
-	@RequestMapping(method = RequestMethod.DELETE, value= "/idee/{id}")
+	@RequestMapping(method = RequestMethod.DELETE, value= "/api-gest-idee-v1.0.0/idee/{id}")
 	public void deleteIdea(@PathVariable int id) {
 		ideaservice.deleteIdea(id);
 	}
 	
 	//Controlleur pour ajouter une idéee
-	@RequestMapping(method = RequestMethod.POST, value="/idees")
+	@RequestMapping(method = RequestMethod.POST, value="/api-gest-idee-v1.0.0/idees")
 	public void addIdea(@RequestBody Idea idea1) {
 		ideaservice.addIdea(idea1);
 	}
 	
 	
-	@RequestMapping(method = RequestMethod.PUT, value="/idee/{id}")
+	@RequestMapping(method = RequestMethod.PUT, value="/api-gest-idee-v1.0.0/idee/{id}")
 	public void update(@RequestBody Idea idea1, @PathVariable int id) {
 		ideaservice.updateIdea(idea1, id);
 	}
