@@ -4,15 +4,15 @@
 
 ## GET http://localhost:8881/api-gest-idee-v1.0.0/idees
 
-Resultat: 
+Resultat:  
 [  
-    {  
-        "id": 1,  
-        "title": "Mon premier titre",  
-        "content": "Premiere API Java Spring",  
-        "status": 1,  
-        "lastmodif": "2023-03-26T00:00:00.000+00:00"  
-    }  
+        {  
+            "id": 1,  
+            "title": "Mon premier titre",  
+            "content": "Premiere API Java Spring",  
+            "status": 1,  
+            "lastmodif": "2023-03-26T00:00:00.000+00:00"  
+        }  
 ]  
 
 ## POST  http://localhost:8881/api-gest-idee-v1.0.0/idees
