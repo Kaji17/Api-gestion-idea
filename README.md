@@ -6,7 +6,7 @@
 
 Resultat: 
 [/n
-    {/n
+    {\n
         "id": 1,
         "title": "Mon premier titre",
         "content": "Premiere API Java Spring",
