@@ -5,8 +5,8 @@
 ## GET http://localhost:8881/api-gest-idee-v1.0.0/idees
 
 Resultat: 
-[
-    {
+[/n
+    {/n
         "id": 1,
         "title": "Mon premier titre",
         "content": "Premiere API Java Spring",
