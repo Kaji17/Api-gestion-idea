@@ -17,18 +17,15 @@ public class Idea {
 	@Column(name = "id", unique = true, nullable = false)
 	private int id;
 	
-	@Column(name="title")
+	@Column(name="title", nullable = true)
 	private String title;
 	
-	@Column(name="content")
+	@Column(name="content", nullable = true)
 	private String content;
 	
-	@Column(name="status")
+	@Column(name="status", nullable = true)
 	private int status;
-	
-	@Column(name="lastmodif")
-	private Date lastmodif;
-	
+
 	public Idea() {
 		super();
 	}
@@ -65,20 +62,12 @@ public class Idea {
 		this.status = status;
 	}
 
-	public Idea(int id, String title, String content, int status, Date lastmodif) {
+	public Idea(int id, String title, String content, int status) {
 		super();
 		this.id = id;
 		this.title = title;
 		this.content = content;
 		this.status = status;
-		this.lastmodif = lastmodif;
 	}
 
-	public Date getLastmodif() {
-		return lastmodif;
-	}
-
-	public void setLastmodif(Date lastmodif) {
-		this.lastmodif = lastmodif;
-	}
 }

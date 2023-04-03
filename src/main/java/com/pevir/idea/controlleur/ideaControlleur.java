@@ -3,16 +3,21 @@ package com.pevir.idea.controlleur;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.MediaType;
+import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.DeleteMapping;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.pevir.idea.modele.Idea;
-import com.pevir.idea.repository.IIdeaRespository;
-import com.pevir.idea.services.IdeaService;
+import com.pevir.idea.services.IdeaService; 
 
+
+@CrossOrigin(origins= "*")
 @RestController
 public class ideaControlleur {
 	
@@ -20,33 +25,32 @@ public class ideaControlleur {
 	@Autowired 
 	private IdeaService ideaservice;
 	
-	
 	//Controlleur pour récuperer la liste des idées 
-	@RequestMapping(method = RequestMethod.GET, value="/api-gest-idee-v1.0.0/idees")
+	@GetMapping(value="/idees")
 	public List<Idea> getIdea() {
 		return ideaservice.getIdea();
 	}
 	
 	//Controlleur pour récuperer une idéee en fonction de son identifiant
-	@RequestMapping(method = RequestMethod.GET, value= "/api-gest-idee-v1.0.0/idee/{id}")
+	@GetMapping(value="/idees/{id}")
 	public Idea getIdeaById(@PathVariable int id) {
 		return ideaservice.getIdeaById(id);
 	}
 	
 	//Controlleur pour supprimer une idéee en fonction de son identifiant
-	@RequestMapping(method = RequestMethod.DELETE, value= "/api-gest-idee-v1.0.0/idee/{id}")
+	@DeleteMapping(value="/idees/{id}", consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
 	public void deleteIdea(@PathVariable int id) {
 		ideaservice.deleteIdea(id);
 	}
 	
 	//Controlleur pour ajouter une idéee
-	@RequestMapping(method = RequestMethod.POST, value="/api-gest-idee-v1.0.0/idees")
+	@PostMapping(value="/idees", consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
 	public void addIdea(@RequestBody Idea idea1) {
 		ideaservice.addIdea(idea1);
 	}
 	
-	
-	@RequestMapping(method = RequestMethod.PUT, value="/api-gest-idee-v1.0.0/idee/{id}")
+	//Controlleur pour modifier une idéee
+	@PutMapping(value="/idees/{id}", consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
 	public void update(@RequestBody Idea idea1, @PathVariable int id) {
 		ideaservice.updateIdea(idea1, id);
 	}

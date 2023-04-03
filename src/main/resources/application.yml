@@ -7,7 +7,7 @@ spring:
   name: Idea
  
  datasource:
-  url: jdbc:mysql://localhost:3308/idea
+  url: jdbc:mysql://localhost:3308/idea?createDatabaseIfNotExist=true
   username: root
   password:
   driver-class-name: com.mysql.cj.jdbc.Driver
